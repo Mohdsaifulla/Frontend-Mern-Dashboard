@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    /* background-color: black; */
+    /* #FF4500 */
+    color:#777;
+}
+/* .nav-bg{
+    background-color: black;
+
+} */
