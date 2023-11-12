@@ -37,3 +37,5 @@ export const iconsName = [
   { name: "Water", icon: <BiWater /> },
   { name: "Entertainment", icon: <GoFileMedia /> },
 ];
+
+
