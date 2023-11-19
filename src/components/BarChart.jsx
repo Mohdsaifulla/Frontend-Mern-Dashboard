@@ -75,6 +75,7 @@ export function BarChart({ data, localData }) {
     <svg
       width={width + margin.left + margin.right}
       height={height + margin.top + margin.bottom}
+      className="mt-4"
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom scale={scaleX} transform={`translate(0, ${height})`} />

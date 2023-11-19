@@ -1,28 +1,28 @@
 import React, { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
-const data = [
-  { name: "intensity", value: 30 },
-  { name: "Category 2", value: 35 },
-  // { name: "Category 3", value: 20 },
-  { name: "Category 4", value: 10 },
-  // Add more data as needed
-];
-
-const PieChart = () => {
+const PieChart = ({ data }) => {
+  console.log(data);
+  const chartData = [
+    { name: "Intensity", value: data.intensity },
+    { name: "Relevance", value: data.relevance },
+    { name: "Likelihood", value: data.likelihood },
+  ];
   const chartRef = useRef();
 
   useEffect(() => {
-    if (data && data.length > 0) {
     const width = 300;
     const height = 300;
     const radius = Math.min(width, height) / 2;
 
     const color = d3
       .scaleOrdinal()
-      .domain(data.map((d) => d.name))
+      .domain(chartData.map((d) => d.name))
       .range(
-        d3.quantize((t) => d3.interpolateSpectral(t * 0.8 + 0.1), data.length)
+        d3.quantize(
+          (t) => d3.interpolateSpectral(t * 0.1 + 0.9),
+          chartData.length
+        )
       );
 
     const pie = d3
@@ -30,7 +30,7 @@ const PieChart = () => {
       .value((d) => d.value)
       .sort(null);
 
-    const arcs = pie(data);
+    const arcs = pie(chartData);
 
     const arc = d3
       .arc()
@@ -63,10 +63,25 @@ const PieChart = () => {
       .text((d) => `${d.data.name}: ${d.data.value}`)
       .style("fill", "white")
       .style("font-size", "11px");
-    }
-  }, []);
-
-  return <svg ref={chartRef} />;
+  }, [chartData]);
+  // < className="flex justify-center flex-col items-center  border p-2 ">
+  return (
+  <>
+      <div className="border p-2 rounded">
+        {[data].map((item) => (
+          <div className="font-semibold flex-col justify-between gap-10 items-center">
+            <h1>COUNTRY:{item.country}</h1>
+            <hr/>
+            <h1>
+              TOPIC:
+              {item.topic.charAt(0).toUpperCase() + item.topic.slice(1)}
+            </h1>
+          </div>
+        ))}
+      </div>
+      <svg ref={chartRef} className="pt-2"/>
+      </>
+  );
 };
 
 export default PieChart;

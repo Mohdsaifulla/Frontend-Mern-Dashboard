@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
+import RingLoader from "react-spinners/RingLoader";
 
+import Table from "./Table";
 const Header = ({ data }) => {
   const [countryName, setCountryName] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -55,7 +57,7 @@ const Header = ({ data }) => {
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded">
               Topic:
-              <p className="font-bold">{filterSelectedCountry.topic}</p>
+              <p className="font-bold">{filterSelectedCountry.topic.charAt(0).toUpperCase() + filterSelectedCountry.topic.slice(1)}</p>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded">
               Relevance:
@@ -77,34 +79,56 @@ const Header = ({ data }) => {
             <div className="">
               <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
                 Intensity
-                <p>...</p>
+                <p className="animate-bounce text-red-500">...</p>
               </div>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
               Topic
-              <p>...</p>
+              <p  className="animate-bounce text-red-500">...</p>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
               Relevance
-              <p>...</p>
+              <p  className="animate-bounce text-red-500">...</p>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
               Likelihood
-              <p>...</p>
+              <p  className="animate-bounce text-red-500">...</p>
             </div>
           </div>
         </div>
       )}
-      <div>
-      <div>
-        <h1>Max Intensities of diffent Topics</h1>
-      <BarChart data={countryName} />
+
+
+
+
+
+      <div className="flex flex-col justify-between items-center md:flex-row ">
+        <div className="mt-4">
+          <h1 className="font-bold">Max Intensities of diffent Topics</h1>
+          <BarChart data={countryName} className=""/>
+        </div>
+        <div className="mt-6">
+          <h1 className="font-bold">PIE-CHART</h1>
+          {filterSelectedCountry && Object.keys(data).length > 0 ? (
+            <PieChart data={filterSelectedCountry} />
+          ) : (
+            <div
+              className="flex
+             flex-col  items-center h-full"
+            >
+              <h1 className="font-semibold animate-pulse">Please select Country from Dropdown...</h1>
+              <RingLoader
+                size={150}
+                color="#36d7b7"
+                className="mt-5"
+              />
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        <h1>Pie-Chart</h1>
-        <PieChart data={filterSelectedCountry}/>
-      </div>
-      </div>
+
+      <Table/>
+
     </div>
   );
 };
