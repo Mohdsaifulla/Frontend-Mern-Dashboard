@@ -3,7 +3,8 @@ import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import RingLoader from "react-spinners/RingLoader";
 
-import Table from "./Table";
+
+import TableData from "./TableData";
 const Header = ({ data }) => {
   const [countryName, setCountryName] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -42,7 +43,7 @@ const Header = ({ data }) => {
 
       {filterSelectedCountry && (
         <div className="flex justify-center mt-2 font-bold text-lg">
-          <p>TOPIC:{filterSelectedCountry.topic.toUpperCase()}</p>
+          <p className="text-3xl">TOPIC:{filterSelectedCountry.topic.toUpperCase()}</p>
         </div>
       )}
 
@@ -127,7 +128,7 @@ const Header = ({ data }) => {
         </div>
       </div>
 
-      <Table/>
+      <TableData data={countryName}/>
 
     </div>
   );
