@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
 import RingLoader from "react-spinners/RingLoader";
-
-
 import TableData from "./TableData";
 const Header = ({ data }) => {
   const [countryName, setCountryName] = useState([]);
@@ -26,7 +24,7 @@ const Header = ({ data }) => {
   const filterSelectedCountry = countryName.find(
     (item) => item.country === selectedCountry
   );
-  console.log(countryName);
+  // console.log(countryName);
   return (
     <div className="m-4 md:m-6 lg:m-8 p-2">
       <div className="border h-10 flex justify-between items-center p-2 bg-yellow-200 rounded">
