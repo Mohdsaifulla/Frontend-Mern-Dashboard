@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.18",
     "@mui/x-data-grid": "^6.18.1",
+    "apexcharts": "^3.44.0",
     "d3": "^7.8.5",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
