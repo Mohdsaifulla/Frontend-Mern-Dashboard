@@ -2,7 +2,7 @@ import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 
 const TableData = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
