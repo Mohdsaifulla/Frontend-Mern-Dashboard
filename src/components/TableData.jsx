@@ -43,12 +43,13 @@ const TableData = ({ data }) => {
 
   return (
     <div style={{ height: 400, width: "100%" }} className="mt-4">
-      <div className="flex justify-center items-center font-bold text-3xl p-2">
+      <div className="flex justify-center items-center font-bold text-3xl p-2 ">
       <h1>TABLE</h1>
       </div>
       <DataGrid
         rows={rows}
         columns={columns}
+        className="tablecolor"
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 10 },

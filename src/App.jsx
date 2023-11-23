@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Energy from "./components/Energy";
 import Navbar from "./components/Navbar";
 import SideNab from "./components/SideNab";
-import Environment from "./components/Environment";
+import Environment from "./components/Manufacturing";
 import Government from "./components/Government";
 import Aerospace from "./components/Aerospace";
 import Manufacturing from "./components/Manufacturing";
@@ -20,6 +20,7 @@ import Security from "./components/Security";
 import Transport from "./components/Transport";
 import Water from "./components/Water";
 import Entertainment from "./components/Entertainment";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <div>
@@ -28,8 +29,9 @@ const App = () => {
         <SideNab />
         <Routes>
           <Route exact path="/" element={<Energy />} />
-          <Route path="/environment" element={<Environment />} />
-          <Route path="/government" element={<Government />} />
+          <Route exact path="/home" element={<Energy />} />
+          <Route path="/manufacturing" element={<Manufacturing />} />
+         
           <Route path="/aerospace" element={<Aerospace />} />
           <Route path="/manufacturing" element={<Manufacturing />} />
           <Route path="/retail" element={<Retail />} />
@@ -46,6 +48,7 @@ const App = () => {
           <Route path="/water" element={<Water />} />
           <Route path="/entertainment" element={<Entertainment />} />
         </Routes>
+        <Footer/>
       </Router>
     </div>
   );

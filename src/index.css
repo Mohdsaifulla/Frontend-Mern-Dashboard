@@ -11,3 +11,7 @@ body{
     background-color: black;
 
 } */
+.MuiDataGrid-cell .MuiDataGrid-cell:focus-within,
+.tablecolor {
+  color: #777 !important; 
+}

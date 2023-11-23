@@ -78,12 +78,12 @@ const Header = ({ data }) => {
             <div className="">
               <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
                 Intensity
-                <p className="animate-bounce text-red-500">...</p>
+                <p className="animate-bounce text-red-500 -z-50">...</p>
               </div>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
               Topic
-              <p  className="animate-bounce text-red-500">...</p>
+              <p  className="animate-bounce text-red-500 -z-50">...</p>
             </div>
             <div className="border-2 border-yellow-300 flex flex-col justify-center items-center p-2 rounded font-semibold">
               Relevance

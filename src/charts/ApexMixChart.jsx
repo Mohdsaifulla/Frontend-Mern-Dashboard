@@ -87,17 +87,17 @@ const ApexMixChart = ({ datas }) => {
     },
   });
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    const options = { year: "numeric", month: "2-digit", day: "2-digit" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
-  
+
   useEffect(() => {
     if (datas && datas.length > 0) {
       const intensityData = datas.map((item) =>
         item.intensity !== null ? item.intensity : 0
       );
 
-      // Handle null values for relevance and likelihood fields
+   
       const relevanceData = datas.map((item) =>
         item.relevance !== null ? item.relevance : 0
       );
@@ -107,8 +107,8 @@ const ApexMixChart = ({ datas }) => {
       const DateData = datas.map((item) =>
       item.added !== null ? formatDate(item.added) : "N/A"
     );
-      setChartData((prevChartData) => ({
-        ...prevChartData,
+
+      setChartData(() => ({
         series: [
           { name: "INTENSITY", type: "column", data: intensityData },
           { name: "RELEVANCE", type: "area", data: relevanceData },
@@ -121,7 +121,7 @@ const ApexMixChart = ({ datas }) => {
             stacked: false,
           },
           stroke: {
-            width: [0, 2, 5],
+            width: [5, 2, 5],
             curve: "smooth",
           },
           plotOptions: {
@@ -140,8 +140,9 @@ const ApexMixChart = ({ datas }) => {
               stops: [0, 100, 100, 100],
             },
           },
-          labels:DateData,
-      
+          labels: DateData,
+          
+
           markers: {
             size: 0,
           },
@@ -150,7 +151,7 @@ const ApexMixChart = ({ datas }) => {
           },
           yaxis: {
             title: {
-              text: "Points",
+              text: "INTENSITY",
             },
             min: 0,
           },
@@ -173,15 +174,15 @@ const ApexMixChart = ({ datas }) => {
 
   return (
     <div id="chart">
-     { [chartData].map((item)=>(
-      <div>
-        <ReactApexChart
-          options={item.options}
-          series={item.series}
-          type="line"
-          height={350}
-        />
-      </div>
+      {[chartData].map((item) => (
+        <div>
+          <ReactApexChart
+            options={item.options}
+            series={item.series}
+            type="area"
+            height={350}
+          />
+        </div>
       ))}
     </div>
   );

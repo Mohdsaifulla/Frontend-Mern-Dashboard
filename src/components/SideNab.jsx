@@ -10,7 +10,7 @@ const SideNab = ({ isOpen, handleHamburger }) => {
     <div
       className={`transition-all duration-500 ${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } shadow-lg bg-white absolute top-0 left-0 w-56 overflow-hidden nav-bg`}
+      } shadow-lg bg-white absolute top-0 left-0 w-56 overflow-hidden nav-bg h-[100vh]`}
     >
       <div className="flex justify-center items-center font-bold m-2">
         <Link

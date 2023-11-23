@@ -6,7 +6,7 @@ import ApexMediaRatio from "../charts/ApexMediaRatio";
 import { FaFlagUsa } from "react-icons/fa";
 import { FcAutomatic } from "react-icons/fc";
 import ApexMixChart from "../charts/ApexMixChart";
-import TableManuf from "./TableManuf";
+import TableData from "./TableData";
 const Content = ({ data }) => {
   const [manuf, setManuf] = useState([]);
   useEffect(() => {
@@ -24,7 +24,7 @@ const Content = ({ data }) => {
 
   return (
     <div className="m-4">
-      <h1 className="text-3xl font-bold">Manufacturing</h1>
+      <h1 className="text-3xl font-bold m-4">Manufacturing</h1>
 
       {manuf.slice(0, 1).map((item, index) => (
         <div
@@ -81,15 +81,16 @@ const Content = ({ data }) => {
           </div>
         </div>
       ))}
-      <div className=" lg:flex lg:flex-row  justify-around w-full">
-        <div className="w-full">
-          <ApexMixChart datas={manuf}/>
-        </div>
-        <div>
-          <TableManuf data={manuf}/>
-        </div>
-      </div>
+     
+        <div className="w-full m-4 p-6 flex flex-col justify-center">
+          <div className="flex justify-center items-center text-3xl font-bold pb-4">
+          <h1>MANUFACTURING INTENSITY RELEVANCE AND LIKELIHOOD AT ADDED DATE</h1>
+          </div>
+          <ApexMixChart datas={manuf}/>  
+          </div>
+          <TableData data={manuf}/>   
     </div>
+    
   );
 };
 
