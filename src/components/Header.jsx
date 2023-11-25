@@ -36,7 +36,7 @@ const Header = ({ data }) => {
             </option>
           ))}
         </select>
-        <h1 className="font-semibold">Dashboard for Energy Sector</h1>
+        <h1 className="font-semibold">Energy Sector</h1>
       </div>
 
       {filterSelectedCountry && (

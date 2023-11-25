@@ -21,11 +21,12 @@ const Energy = () => {
   return (
     <div>
       {loading ? (
-        <div className="flex items-center justify-center h-[80vh]">
+        <div className="flex flex-col items-center justify-center h-[80vh]">
         <HashLoader
           color="#36d7b7"
           className="flex items-center justify-center h-screen m-auto"
         />
+        <p1>Please wait for a while this loading is due to Activating IP address in Mongo-Atlas it will be worth waiting...</p1>
         </div>
       ) : (
         <Header data={data} />

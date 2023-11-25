@@ -41,7 +41,7 @@ function AxisLeft({ scale }) {
 }
 
 function Bars({ data, localData, height, scaleX, scaleY }) {
-  console.log(data);
+  // console.log(data);
   return (
     <>
       {(data ? data : localData).slice(0,10).map((item) => (
@@ -75,7 +75,7 @@ export function BarChart({ data, localData }) {
     <svg
       width={width + margin.left + margin.right}
       height={height + margin.top + margin.bottom}
-      className="mt-4"
+      className="mt-4 w-full"
     >
       <g transform={`translate(${margin.left}, ${margin.top})`}>
         <AxisBottom scale={scaleX} transform={`translate(0, ${height})`} />
